@@ -32,7 +32,7 @@ services:
             # - SCRYPTED_NVR_VOLUME=/nvr
 
             - SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION=Bearer ${WATCHTOWER_TOKEN}
-            - SCRYPTED_WEBHOOK_UPDATE=http://localhost:10444/v1/update
+            - SCRYPTED_WEBHOOK_UPDATE=http://localhost:10443/v1/update
 
             # Uncomment next 3 lines for Nvidia GPU support.
             # - NVIDIA_VISIBLE_DEVICES=all
