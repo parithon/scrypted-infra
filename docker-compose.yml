@@ -89,7 +89,9 @@ services:
 
         container_name: scrypted
         restart: unless-stopped
-        network_mode: host
+        #network_mode: host
+        networks:
+        - iot
         #image: koush/scrypted
         build:
           context: .
@@ -140,3 +142,14 @@ volumes:
       type: "nfs"
       o: "addr=22.0.0.2,nolock,soft,rw"
       device: ":/volume2/containers/docker_volumes/scrypted"
+
+networks:
+  iot:
+    driver: macvlan
+    driver_opts:
+      parent: eth1
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.2.0/24
+          gateway: 192.168.2.1
